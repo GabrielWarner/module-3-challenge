@@ -7,8 +7,8 @@ function generatePassword(){
   var lowerCase = "abcdefghijklmnopqrstuvwxyz"
   var numbers = "1234567890"
   var specialChars = "!@#$%^&*()_+"
+  var userSelections = ""
   var password = ""
-  var userSelections = []
   //1. prompt user for parameters
   var legnth = prompt("Enter the number of characters from 8 - 128")
   if (legnth < 8 || legnth > 128) {
@@ -28,39 +28,34 @@ function generatePassword(){
     var includeLowerCase = confirm("Would you like to include lower case letters?")
   }
 
-
   // adds string to array if user clicks ok or cancel
   if (includeUpperCase === true) {
-    userSelections.push(upperCase)
+    userSelections = userSelections.concat(upperCase)
   }
 
   if(includeLowerCase === true){
-    userSelections.push(lowerCase)
+    userSelections = userSelections.concat(lowerCase)
   }
 
-
-
   if(includeNumbers === true){
-    userSelections.push(lowerCase)
+    userSelections = userSelections.concat(numbers)
   }
 
   if(includeSpecialChars === true){
-    userSelections.push(lowerCase)
+    userSelections = userSelections.concat(specialChars)
   }
+  console.log(userSelections)
 
+  //now the for loop will run through the user selection array x amount of times and grab a random char to add to the password string
 
+for (let i = 0; i < legnth; i++) {
+  password += userSelections.charAt(Math.floor(Math.random() * userSelections.length))
   
+}
+
+console.log(password)
 
 
-
-
-  //for loop run the number of times that user sets length to
-  //add random character to password string
-
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
-  }
 
 
 }
