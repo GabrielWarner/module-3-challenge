@@ -1,63 +1,77 @@
-
-function generatePassword(){
-  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  var lowerCase = "abcdefghijklmnopqrstuvwxyz"
-  var numbers = "1234567890"
-  var specialChars = "!@#$%^&*()_+"
-  var userSelections = ""
-  var password = ""
+function generatePassword() {
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var numbers = "1234567890";
+  var specialChars = "!@#$%^&*()_+";
+  var userSelections = "";
+  var password = "";
   //1. prompt user for parameters
-  var legnth = prompt("Enter the number of characters from 8 - 128")
-  if (legnth < 8 || legnth > 128) {
-    legnth = prompt("Invalid input")
-  }
- //length, special chars, numbers, upperscase, lowercase
-  var includeUpperCase = confirm("Would you like to include Upper Case letter?")
-  var includeLowerCase = confirm("Would you like to include lower case letters?")
-  var includeNumbers = confirm("Would you like to include number?")
-  var includeSpecialChars = confirm("Would you like to include Special Characters?")
+  var legnth = prompt("Enter the number of characters from 8 - 128");
 
+//a while loop that makes the user enter the correct legnt
+    while(legnth < 8 || legnth > 128){
+      legnth = prompt("Enter a number from 8 - 128")
+    }
+
+ //confirms used ask the user if tey want to include the specific things
+  var includeUpperCase = confirm(
+    "Would you like to include Upper Case letter?"
+  );
+  var includeLowerCase = confirm(
+    "Would you like to include lower case letters?"
+  );
 
   //checks to see if the user entered no for Upper and lower case, if they did it will ask them again
-  if(includeUpperCase === false && includeLowerCase === false){
-    alert("You need atleast choose lower or upper case")
-    var includeUpperCase = confirm("Would you like to include Upper Case letter?")
-    var includeLowerCase = confirm("Would you like to include lower case letters?")
-  }
+  //I let the user just have characters in their password but they have to atleast choose upper or lowercase.
+  if (includeUpperCase === false && includeLowerCase === false) {
+    while(includeUpperCase === false && includeLowerCase === false){
+      alert("ERROR: You need to atleast inlude upper or lower case letters.");
+      var includeUpperCase = confirm(
+        "Would you like to include Upper Case letter?"
+      );
+      var includeLowerCase = confirm(
+        "Would you like to include lower case letters?"
+      );
+    }
 
+
+  //since we made user pick upper or lower they now have the option to not include anything else
+  var includeNumbers = confirm("Would you like to include number?");
+  var includeSpecialChars = confirm(
+    "Would you like to include Special Characters?"
+  );
+
+
+
+  }
   // adds string to array if user clicks ok or cancel
   if (includeUpperCase === true) {
-    userSelections = userSelections.concat(upperCase)
+    userSelections = userSelections.concat(upperCase);
   }
 
-  if(includeLowerCase === true){
-    userSelections = userSelections.concat(lowerCase)
+  if (includeLowerCase === true) {
+    userSelections = userSelections.concat(lowerCase);
   }
 
-  if(includeNumbers === true){
-    userSelections = userSelections.concat(numbers)
+  if (includeNumbers === true) {
+    userSelections = userSelections.concat(numbers);
   }
 
-  if(includeSpecialChars === true){
-    userSelections = userSelections.concat(specialChars)
+  if (includeSpecialChars === true) {
+    userSelections = userSelections.concat(specialChars);
   }
-  console.log(userSelections)
+  console.log(userSelections);
 
   //now the for loop will run through the user selection array x amount of times and grab a random char to add to the password string
 
-for (let i = 0; i < legnth; i++) {
-  password += userSelections.charAt(Math.floor(Math.random() * userSelections.length))
-  
+  for (let i = 0; i < legnth; i++) {
+    password += userSelections.charAt(
+      Math.floor(Math.random() * userSelections.length)
+    );
+  }
+  //return password
+  return password;
 }
-
-console.log(password)
-
-
-
-return password
-}
-
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -68,22 +82,18 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 function getParameters() {
   //set legnth via prompt
-  length = prompt ()
-  if(length < 8){
+  length = prompt();
+  if (length < 8) {
     //tell user password must be 8 characters or more
-  }else if(length > 128){
-
+  } else if (length > 128) {
   }
   //tell user passowrd must be less than 129 characters
   //add characters to availableCharacters via prompts
-
 }
