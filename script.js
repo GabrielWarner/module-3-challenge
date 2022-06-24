@@ -1,6 +1,3 @@
-var length;
-var availableCharacters = "";
-
 
 function generatePassword(){
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -57,7 +54,7 @@ console.log(password)
 
 
 
-
+return password
 }
 
 
