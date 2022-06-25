@@ -8,41 +8,40 @@ function generatePassword() {
   //1. prompt user for parameters
   var legnth = prompt("Enter the number of characters from 8 - 128");
 
-//a while loop that makes the user enter the correct legnt
-    while(legnth < 8 || legnth > 128){
-      legnth = prompt("Enter a number from 8 - 128")
-    }
+  //a while loop that makes the user enter the correct legnt
+  while (legnth < 8 || legnth > 128) {
+    legnth = prompt("Enter a number from 8 - 128");
+  }
 
- //confirms used ask the user if tey want to include the specific things
+  //confirms used ask the user if tey want to include the specific things
   var includeUpperCase = confirm(
     "Would you like to include Upper Case letter?"
   );
   var includeLowerCase = confirm(
     "Would you like to include lower case letters?"
   );
-
-  //checks to see if the user entered no for Upper and lower case, if they did it will ask them again
-  //I let the user just have characters in their password but they have to atleast choose upper or lowercase.
-  if (includeUpperCase === false && includeLowerCase === false) {
-    while(includeUpperCase === false && includeLowerCase === false){
-      alert("ERROR: You need to atleast inlude upper or lower case letters.");
-      var includeUpperCase = confirm(
-        "Would you like to include Upper Case letter?"
-      );
-      var includeLowerCase = confirm(
-        "Would you like to include lower case letters?"
-      );
-    }
-
-
-  //since we made user pick upper or lower they now have the option to not include anything else
   var includeNumbers = confirm("Would you like to include number?");
   var includeSpecialChars = confirm(
     "Would you like to include Special Characters?"
   );
-
-
-
+  //while loop that requires user to include atleast one option
+  while (
+    includeUpperCase === false &&
+    includeLowerCase === false &&
+    includeNumbers === false &&
+    includeSpecialChars === false
+  ) {
+    alert("ERROR: You need to atleast inlude upper or lower case letters.");
+    var includeUpperCase = confirm(
+      "Would you like to include Upper Case letter?"
+    );
+    var includeLowerCase = confirm(
+      "Would you like to include lower case letters?"
+    );
+    var includeNumbers = confirm("Would you like to include number?");
+    var includeSpecialChars = confirm(
+      "Would you like to include Special Characters?"
+    );
   }
   // adds string to array if user clicks ok or cancel
   if (includeUpperCase === true) {
