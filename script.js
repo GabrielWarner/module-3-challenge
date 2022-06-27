@@ -25,6 +25,7 @@ function generatePassword() {
     "Would you like to include Special Characters?"
   );
   //while loop that requires user to include atleast one option
+  //loop will keep running if they keep clicking cancel
   while (
     includeUpperCase === false &&
     includeLowerCase === false &&
