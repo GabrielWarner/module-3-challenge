@@ -5,6 +5,8 @@ In this assignment I used if statements and while loops to ask the user a series
 I used prompt, alert and confirm methods to gather info and stored them into different variables.
 
 
+link to app: https://gabrielwarner.github.io/module-3-challenge/
+
 
 
 Screenshot of app:

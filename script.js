@@ -67,7 +67,7 @@ function generatePassword() {
   for (let i = 0; i < legnth; i++) {
     password += userSelections.charAt(
       Math.floor(Math.random() * userSelections.length)
-    );
+    )
   }
   //return password
   return password;
@@ -87,13 +87,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-function getParameters() {
-  //set legnth via prompt
-  length = prompt();
-  if (length < 8) {
-    //tell user password must be 8 characters or more
-  } else if (length > 128) {
-  }
-  //tell user passowrd must be less than 129 characters
-  //add characters to availableCharacters via prompts
-}
